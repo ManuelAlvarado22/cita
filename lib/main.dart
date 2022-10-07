@@ -1,4 +1,7 @@
+import 'package:cita/theme/app_theme.dart';
 import 'package:flutter/material.dart';
+
+import 'package:cita/router/app_routes.dart';
 
 void main() => runApp(const MyApp());
 
@@ -8,23 +11,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Material App',
-      home: Scaffold(
-        appBar: AppBar(
-          elevation: 10,
-          backgroundColor: Colors.pink,
-          title: const Text(
-            'cITA',
-            style: TextStyle(fontSize: 35),
-          ),
-        ),
-        body: const Center(
-          child: Text(
-            'Hello World',
-            style: TextStyle(fontSize: 30),
-          ),
-        ),
-      ),
+      debugShowCheckedModeBanner: false,
+      title: 'cITAs',
+      initialRoute: AppRoutes.initialRoute,
+      onGenerateRoute: AppRoutes.onGenerateRoute,
+      routes: AppRoutes.getRoutes(),
+      theme: AppTheme.darkTheme,
     );
   }
 }
